@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+import BookmarksContext from './BookmarksContext';
+>>>>>>> context-startingpoint
 import AddBookmark from './AddBookmark/AddBookmark';
 import BookmarkList from './BookmarkList/BookmarkList';
 import Nav from './Nav/Nav';
@@ -32,17 +36,27 @@ const bookmarks = [
 
 class App extends Component {
   state = {
+<<<<<<< HEAD
     bookmarks,
     error: null,
   };
 
 
 
+=======
+    bookmarks: [],
+    error: null,
+  };
+
+>>>>>>> context-startingpoint
   setBookmarks = bookmarks => {
     this.setState({
       bookmarks,
       error: null,
+<<<<<<< HEAD
 
+=======
+>>>>>>> context-startingpoint
     })
   }
 
@@ -50,6 +64,14 @@ class App extends Component {
     this.setState({
       bookmarks: [...this.state.bookmarks, bookmark],
     })
+  }
+
+  deleteBookmark = bookmarkId => {
+    const newBookmarks = this.state.bookmarks.filter(bm =>
+      bm.id !== bookmarkId)
+      this.setState({
+        bookmarks: newBookmarks
+      })
   }
 
   componentDidMount() {
@@ -71,15 +93,28 @@ class App extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     const { bookmarks } = this.state
     return (
       <main className='App'>
         <h1>Bookmarks!</h1>
 
+=======
+    const contextValue = {
+      bookmarks: this.state.bookmarks,
+      addBookmark: this.addBookmark,
+      deleteBookmark: this.deleteBookmark,
+    }
+    return (
+      <main className='App'>
+        <h1>Bookmarks!</h1>
+        <BookmarksContext.Provider value={contextValue}>
+>>>>>>> context-startingpoint
         <Nav />
         <div className='content' aria-live='polite'>
           <Route
             path='/add-bookmark'
+<<<<<<< HEAD
             render={({ history }) => {
               return <AddBookmark
               onAddBookmark={this.addBookmark}
@@ -97,6 +132,18 @@ class App extends Component {
           />
         </div>
       </main >
+=======
+            component={AddBookmark}
+          />
+          <Route
+            exact
+            path='/'
+            component={BookmarkList}
+          />
+        </div>
+        </BookmarksContext.Provider>
+      </main>
+>>>>>>> context-startingpoint
     );
   }
 }
