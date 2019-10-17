@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-<<<<<<< HEAD
-=======
-import BookmarksContext from './BookmarksContext';
->>>>>>> context-startingpoint
 import AddBookmark from './AddBookmark/AddBookmark';
 import BookmarkList from './BookmarkList/BookmarkList';
 import Nav from './Nav/Nav';
@@ -36,27 +32,16 @@ const bookmarks = [
 
 class App extends Component {
   state = {
-<<<<<<< HEAD
     bookmarks,
     error: null,
   };
 
 
 
-=======
-    bookmarks: [],
-    error: null,
-  };
-
->>>>>>> context-startingpoint
   setBookmarks = bookmarks => {
     this.setState({
       bookmarks,
       error: null,
-<<<<<<< HEAD
-
-=======
->>>>>>> context-startingpoint
     })
   }
 
